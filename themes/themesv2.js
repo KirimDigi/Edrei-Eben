@@ -739,6 +739,9 @@ var eventUp = function eventUp(e) {
   window.removeEventListener(events[deviceType].move, eventMove, false);
 };
 var eventDown = function eventDown(e) {
+  if (e.target.closest('#wishesDisplaySection')) {
+    return;
+  }
   if (e.cancelable) e.preventDefault();
   initialY = !isTouchDevice() ? e.clientY : e.touches[0].clientY;
   window.addEventListener(events[deviceType].up, eventUp, false);
